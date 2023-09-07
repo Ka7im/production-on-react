@@ -1,12 +1,12 @@
-import webpack from "webpack";
-import { BuildOptons } from "./types/config";
+import type webpack from 'webpack'
+import { type BuildOptons } from './types/config'
 
-export function buildResolvers(options: BuildOptons): webpack.ResolveOptions {
+export function buildResolvers (options: BuildOptons): webpack.ResolveOptions {
   return {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: ['.tsx', '.ts', '.js'],
     preferAbsolute: true,
-    modules: [options.paths.src, "node_modules"],
-    mainFiles: ["index"],
-    alias: {},
-  };
+    modules: [options.paths.src, 'node_modules'],
+    mainFiles: ['index'],
+    alias: {}
+  }
 }
