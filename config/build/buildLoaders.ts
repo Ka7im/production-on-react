@@ -1,7 +1,7 @@
 import type webpack from 'webpack'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { type BuildOptons } from './types/config'
 import ReactRefreshTypeScript from 'react-refresh-typescript'
+import { buildCssLoaders } from './loaders/buildCssLoaders'
 
 export function buildLoaders (options: BuildOptons): webpack.RuleSetRule[] {
   const babelLoader = {
@@ -34,24 +34,7 @@ export function buildLoaders (options: BuildOptons): webpack.RuleSetRule[] {
     use: [{ loader: 'file-loader' }]
   }
 
-  const cssLoader = {
-    test: /\.s[ac]ss$/i,
-    use: [
-      options.isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-      {
-        loader: 'css-loader',
-        options: {
-          modules: {
-            auto: (resPath: string) => resPath.includes('.module.'),
-            localIdentName: options.isDev
-              ? '[path][name]__[local]--[hash:base64:8]'
-              : '[hash:base64:8]'
-          }
-        }
-      },
-      'sass-loader'
-    ]
-  }
+  const cssLoader = buildCssLoaders(options.isDev)
 
   const typescriptLoader = {
     test: /\.tsx?$/,

@@ -38,6 +38,6 @@
         "compilerOptions": {
             "module": "CommonJS"
         }
-    }
-    // "include": ["./config/jest/setupTest.ts"]
+    },
+     "include": ["./config/**/*", "./src/**/*.ts", "./src/**/*.tsx","./webpack.config.ts" ]
 }
