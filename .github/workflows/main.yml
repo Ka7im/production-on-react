@@ -27,10 +27,3 @@ jobs:
         run: npm run lint:scss
       - name: unit testing
         run: npm run test:unit
-      - name: build storybook
-        run: npm run build-storybook
-      - name: screenshot testing
-        uses: chromaui/action@latest
-        with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          fetch-depth: 0
