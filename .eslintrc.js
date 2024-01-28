@@ -26,6 +26,7 @@ module.exports = {
   plugins: ["react", "i18next"],
   rules: {
     "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/prefer-nullish-coalescing": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-misused-promises": [
@@ -37,7 +38,6 @@ module.exports = {
       },
     ],
     "@typescript-eslint/naming-convention": "warn",
-    "@typescript-eslint/strict-boolean-expressions": "warn",
     "i18next/no-literal-string": [
       "error",
       { markupOnly: true, ignoreAttribute: ["data-testid", "to"] },
