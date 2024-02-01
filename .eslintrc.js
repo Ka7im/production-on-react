@@ -23,8 +23,10 @@ module.exports = {
   parserOptions: {
     sourceType: "script",
   },
-  plugins: ["react", "i18next"],
+  plugins: ["react", "i18next",'react-hooks'],
   rules: {
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "error", // Checks effect dependencies
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/prefer-nullish-coalescing": "off",
